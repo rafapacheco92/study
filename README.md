@@ -1,2 +1,2 @@
 # study
- Estudos, exercicios e afins
+ Estudos, exercicios e afins.
