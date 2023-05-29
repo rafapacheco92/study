@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora de Faturas
+    </title>
+</head>
+<body bgcolor="b1f469">
+  
+<center>
+
+<table class="tabela">
+    <thead class="cabecaDois">
+        <tr>
+            <th>CÓDIGO</th>
+            <th>ESPECIFICAÇÃO</th>
+            <th>PREÇO</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Cachorro Quente</td>
+            <td id="valorDog">4.00</td>
+            <td><input id="qntDogID" placeholder="Quantos?"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>X-Salada</td>
+            <td id="valorSalada">4.50</td>
+            <td><input id="qntSaladaID" placeholder="Quantos?"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>X-Bacon</td>
+            <td id="valorBacon">5.00</td>
+            <td><input id="qntBaconID" placeholder="Quantos?"></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Torrada Simples</td>
+            <td id="valorTorrada">2.00</td>
+            <td><input id="qntTorradaID" placeholder="Quantos?"></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Refrigerante</td>
+            <td id="valorRefrigerante">1.50</td>
+            <td><input id="qntRefriID" placeholder="Quantos?"></td>
+        </tr>
+    
+    </tbody>
+</table>
+<br>
+<button onclick="totalFatura()">Calcular</button>
+
+</center>    
+
+<script src="script.js"></script>
+</body>
+</html>
