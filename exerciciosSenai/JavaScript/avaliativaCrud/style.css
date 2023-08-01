@@ -1,0 +1,94 @@
+html {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: #CB793A;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+}
+
+h1 {
+  color: #321325;
+}
+
+.campos {
+  width: auto;
+  height: 30%;
+  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.campo label {
+  color: #321325;
+  font-weight: bold;
+}
+
+.campo input {
+  border-radius: 6px;
+}
+
+.button {
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #9A031E;
+  color: #FCDC4D;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.table{
+  color: #321325;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.recebeInfo h1 {
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid #321325;
+}
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+th, td{
+padding: 10px;
+text-align: center;
+width: 120px;
+}
+
+th{
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #9A031E;
+  color: #fff;
+}
+
+tr:hover:nth-child(1n + 2) {
+  background-color: #5F0F40;
+  color: #fff;
+  }
