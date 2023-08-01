@@ -1,0 +1,25 @@
+<!-- 1) Santa Catarina é conhecida por suas quatro estações bem definidas, o que o torna um estado com alta amplitude térmica (diferença entre a maior e a menor temperatura, registrada em um período). O INMET, Instituto Nacional de Meteorologia, pretende ter os dados de amplitude térmica de uma cidade ou estado. Desenvolva um programa que calcule e mostre os dados diários (segunda à sexta) e a média de amplitude térmica semanal, mostrando os resultados ao final. Exemplo: Digitar o nome da cidade ou estado, perguntar para os cinco dias da semana a maior temperatura do dia e a menor. Mostrar as amplitudes de cada dia e a média. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meteorologia</title>
+</head>
+<body>
+
+    <h1>Calculadora de Amplitude</h1>
+    <div><label for="">Digite a cidade:</label><input type="text" placeholder="Digite a cidade"></div>
+    <div></div><label for="">Segunda-feira:</label><input id="inpMaiorUm" type="number" placeholder="Digite a maior temperatura"><input id="inpMenorUm" type="number" placeholder="Digite a menor temperatura"></div>
+    <div></div><label for="">Terça-feira:</label><input type="number" id="inpMaiorDois" placeholder="Digite a maior temperatura"><input type="number" id="inpMenorDois" placeholder="Digite a menor temperatura"></div>
+    <div></div><label for="">Quarta-feira:</label><input type="number" id="inpMaiorTres" placeholder="Digite a maior temperatura"><input type="number" id="inpMenorTres" placeholder="Digite a menor temperatura"></div>
+    <div></div><label for="">Quinta-feira:</label><input type="number" id="inpMaiorQuatro" placeholder="Digite a maior temperatura"><input type="number" id="inpMenorQuatro" placeholder="Digite a menor temperatura"></div>
+    <div></div><label for="">Sexta-feira:</label><input type="number" id="inpMaiorCinco" placeholder="Digite a maior temperatura"><input type="number" id="inpMenorCinco" placeholder="Digite a menor temperatura"></div>
+    <br><button onclick="Calcular()">Calcular Amplitudes</button>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
