@@ -49,14 +49,14 @@
 // html, com os seguintes parâmetros
 // tag, classe e conteudo.
 
-function criarElemento (tag, classe, conteudo){
-  let elemento = document.createElement(tag);
-  classe ? elemento.classList.add(classe) : null;
-  conteudo ? elemento.innerHTML = conteudo : null;
-  return elemento;
-}
+// function criarElemento (tag, classe, conteudo){
+//   let elemento = document.createElement(tag);
+//   classe ? elemento.classList.add(classe) : null;
+//   conteudo ? elemento.innerHTML = conteudo : null;
+//   return elemento;
+// }
 
-console.log(criarElemento('p', 'class', 'Rafael'));
+// console.log(criarElemento('p', 'class', 'Rafael'));
 
 
 
@@ -64,6 +64,6 @@ console.log(criarElemento('p', 'class', 'Rafael'));
 // essa nova função deverá sempre criar h1 com a
 // classe titulo. Porém o parâmetro conteudo continuará dinâmico
 
-let textoH1 = criarElemento.bind(null, 'h1', 'titulo')
+// let textoH1 = criarElemento.bind(null, 'h1', 'titulo')
 
-console.log(textoH1('sldkajsdlkaj'))
+// console.log(textoH1('sldkajsdlkaj'))
