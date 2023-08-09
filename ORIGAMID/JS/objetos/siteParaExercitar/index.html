@@ -10,8 +10,7 @@
     <title>Animais Fantásticos</title>
   </head>
   <body>
-    <div data-anima-scroll="left">Div 1</div>
-    <nav class="menu jsMenu">
+    <nav class="menu" data-menu="suave">
       <ul>
         <li><a href="#animais">ANIMAIS</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -20,10 +19,10 @@
       </ul>
     </nav>
 
-    <section class="gridSection animais jsScroll" id="animais">
+    <section class="gridSection animais" data-anime="scroll" id="animais">
       <h1 class="titulo">Animais Fantasticos</h1>
 
-      <ul class="animaisLista jsTabMenu">
+      <ul class="animaisLista" data-tab="menu">
         <li><img src="./img/imagem1.jpg" /></li>
         <li><img src="./img/imagem2.jpg" /></li>
         <li><img src="./img/imagem3.jpg" /></li>
@@ -32,7 +31,7 @@
         <li><img src="./img/imagem6.jpg" /></li>
       </ul>
       <section>
-        <div class="animais-descricao jsTabContent">
+        <div class="animais-descricao" data-tab="content">
           <section data-anime="show-down">
             <h2>Raposa</h2>
             <p>
@@ -163,9 +162,9 @@
       </section>
     </section>
 
-    <section class="gridSection faq jsScroll" id="faq">
+    <section class="gridSection faq" data-anime="scroll" id="faq">
       <h1 class="titulo">FAQ</h1>
-      <dl class="faq-lista jsFaq">
+      <dl class="faq-lista" data-anime="accordion">
         <dt>Qual a idade dos animais?</dt>
         <dd>
           As raposas são animais mamíferos e onívoros pertencentes à família
@@ -191,7 +190,7 @@
       </dl>
     </section>
 
-    <section class="gridSection contato jsScroll" id="contato">
+    <section class="gridSection contato" data-anime="scroll" id="contato">
       <h1>Contato</h1>
       <div class="mapa">
         <img src="./img/mapa.png" />
@@ -207,7 +206,6 @@
     <footer class="copy">
       <p>Todos os direitos reservados.</p>
     </footer>
-    <script src="script.js"></script>
-    <script src="../dataset.js"></script>
+    <script type="module" src="js/script.js"></script>
   </body>
 </html>
