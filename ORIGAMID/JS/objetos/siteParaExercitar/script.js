@@ -7,7 +7,8 @@ function activeTab(index){
   tabContent.forEach((item) => {
     item.classList.remove('ativo')
   })
-  tabContent[index].classList.add('ativo')
+  let direction = tabContent[index].dataset.anime
+  tabContent[index].classList.add('ativo', direction)
 }
 
 tabMenu.forEach((item, index) => {
