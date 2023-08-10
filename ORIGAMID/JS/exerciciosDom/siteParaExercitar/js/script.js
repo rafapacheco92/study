@@ -4,6 +4,7 @@ import initTab from "./modules/initTab.js"
 import showNHide from "./modules/showNHide.js"
 import initModal from "./modules/modal.js"
 import initTooltip from "./modules/tooltip.js"
+import initDropDown  from "./modules/dropdown.js"
 
 scrollSuavinho()
 initAnimaScroll()
@@ -11,3 +12,4 @@ initTab()
 showNHide()
 initModal()
 initTooltip()
+initDropDown()
