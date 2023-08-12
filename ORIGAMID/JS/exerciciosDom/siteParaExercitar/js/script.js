@@ -5,6 +5,9 @@ import showNHide from "./modules/showNHide.js"
 import initModal from "./modules/modal.js"
 import initTooltip from "./modules/tooltip.js"
 import initDropDown  from "./modules/dropdown.js"
+import initMenuMobile from "./modules/menuMobile.js"
+
+// import addClass from "./modules/setTimeOutSetInterval.js"
 
 scrollSuavinho()
 initAnimaScroll()
@@ -13,3 +16,7 @@ showNHide()
 initModal()
 initTooltip()
 initDropDown()
+initMenuMobile()
+
+
+// addClass()

@@ -304,3 +304,7 @@ body {
   transform: translate3d(0, 0, 0);
   transition: .3s;
 }
+
+body.active {
+  background: blue;
+}
