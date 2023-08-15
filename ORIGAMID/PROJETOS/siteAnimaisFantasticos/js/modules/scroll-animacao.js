@@ -7,10 +7,11 @@ export default function initAnimaScroll() {
     sections.forEach((section) => {
       let sectionTop = section.getBoundingClientRect().top
       let isSectionVisible = (sectionTop - halfWindow) < 0;
-      if (isSectionVisible)
+      if(isSectionVisible)
         section.classList.add('ativo')
-       else 
+      else if(section.classList.contains('ativo')){
         section.classList.remove('ativo')
+      }
     })
   }
   
