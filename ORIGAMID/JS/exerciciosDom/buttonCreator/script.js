@@ -42,7 +42,24 @@ function handleChange(event) {
 
   handleStyle[name](value)
   showCss()
+  saveValues()
 }
+
+function saveValues(name, value) {
+  localStorage[name] = value;
+}
+
+function setValues() {
+  let properties = object.keys(localStorage);
+  properties.forEach(property => {
+    handleStyle[property](localStorage[property])
+    console.log(controles.elements[property])
+    controles.elements[property].value = localStorage[property]
+  })
+  showCss()
+}
+
+setValues()
 
 function showCss () {
   cssT.innerHTML = '<span>' + btn.style.cssText.split('; ').join(';</span><span>');
