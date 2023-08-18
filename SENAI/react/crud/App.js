@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 
-let carrosDB = []
+let properties = ['marca', 'modelo', 'ano', 'km']
+let carrosDB = [{marca: 'honda', modelo: 'civic', ano: 2023, km: 22000}, {marca: 'vw', modelo: 'fusca', ano: 1969, km: 2200000}, {marca: 'volvo', modelo: 'v40', ano: 2014, km: 70000}]
 
 export default function App() {
 
@@ -13,9 +14,10 @@ export default function App() {
   let [pesquisa, setPesquisa] = useState('')
 
   function handleCadastro() {
+    if (marca && modelo && ano && km){
     let carro = {
-      modelo: modelo,
       marca: marca,
+      modelo: modelo,
       ano: ano,
       km: km
     }
@@ -25,31 +27,53 @@ export default function App() {
     setMarca('')
     setAno('')
     setKm('')
-    console.log(carrosDB)
+  }else{
+    alert('Preencha todos os campos')
   }
+  }
+
 
   function handlePesquisa() {
-    carrosDB.forEach((element) => {
-      console.log(element.length)
-      for (let i = 0; i < carrosDB.length; i++){
-        if (element[i] == pesquisa) {
-          setMarca(element.marca)
-          setModelo(element.modelo)
-          setAno(element.ano)
-          setKm(element.km)
-        }
+
+    for(let i = 0; i < carrosDB.length; i++) {
+      for(key in carrosDB[i]) {
+        console.log(key)
+        console.log(carrosDB[i][key])
+        if(carrosDB[i][key] == pesquisa) {
+          setMarca(carrosDB[i].marca)
+          setModelo(carrosDB[i].modelo)
+          setAno(carrosDB[i].ano.toString())
+          setKm(carrosDB[i].km.toString())
+          return carrosDB[i]
       }
-    })
+      }
+    }
+
   }
 
+
   function handleDelete() {
-    
+    let deleteItem = handlePesquisa();
+    let index = carrosDB.indexOf(deleteItem)
+    carrosDB.splice(index, 1)
+    setModelo('')
+    setMarca('')
+    setAno('')
+    setKm('')
+  }
+
+  function handleEdit() {
+    let editItem = handlePesquisa();
+    editItem.marca = marca;
+    editItem.modelo = modelo;
+    editItem.ano = ano;
+    editItem.km = km;
   }
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Cadastro de Veículos</Text>
-      <Text style={styles.label}>Pesquisar</Text>
+      <Text style={styles.label}>Pesquisar por modelo</Text>
       <TextInput 
       style={styles.input}
       value={pesquisa}
@@ -95,6 +119,11 @@ export default function App() {
         onPress={handlePesquisa}>
         <Text style={styles.textButton}>PESQUISAR</Text>
       </TouchableOpacity>
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={handleEdit}>
+        <Text style={styles.textButton}>EDITAR</Text>
+      </TouchableOpacity>
       </View>
 
 
@@ -125,6 +154,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     height: 30,
     marginBottom: 10,
+    width: 200
   },
   text: {
     fontSize: 30,
@@ -132,11 +162,11 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   label: {
-      fontSize: 15,
-      fontWeight: 'bold',
-      color: '#333',
-      marginTop: 10,
-      marginBottom: 5,
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#333',
+    marginTop: 10,
+    marginBottom: 5,
   },
   button: {
     backgroundColor: '#333',
