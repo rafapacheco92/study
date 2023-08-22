@@ -6,11 +6,10 @@ import initModal from "./modules/modal.js"
 import initTooltip from "./modules/tooltip.js"
 import initDropDown  from "./modules/dropdown.js"
 import initMenuMobile from "./modules/menuMobile.js"
-import initAnimaNumbers from "./modules/animaNumbers.js"
+import initFetchAnimais from "./modules/fetchAnimais.js"
 
 // import addClass from "./modules/setTimeOutSetInterval.js"
 
-initAnimaNumbers()
 scrollSuavinho()
 initAnimaScroll()
 initTab()
@@ -19,6 +18,7 @@ initModal()
 initTooltip()
 initDropDown()
 initMenuMobile()
+initFetchAnimais()
 
 
 // addClass()
