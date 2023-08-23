@@ -7,6 +7,7 @@ import initTooltip from "./modules/tooltip.js"
 import initDropDown  from "./modules/dropdown.js"
 import initMenuMobile from "./modules/menuMobile.js"
 import initFetchAnimais from "./modules/fetchAnimais.js"
+import initFetchBtc from "./modules/fetchBtc.js"
 
 // import addClass from "./modules/setTimeOutSetInterval.js"
 
@@ -19,6 +20,7 @@ initTooltip()
 initDropDown()
 initMenuMobile()
 initFetchAnimais()
+initFetchBtc()
 
 
 // addClass()

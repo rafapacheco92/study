@@ -191,10 +191,6 @@ body {
   font-weight: bold;
 }
 
-.contato li {
-  font-family: 'IBM Plex Mono', monospace;
-}
-
 @media (max-width: 700px) {
   .grid-container {
     grid-template-columns: 1fr;
@@ -307,4 +303,11 @@ body {
 
 body.active {
   background: blue;
+}
+
+.btcPreco {
+  background: #EF9;
+  padding: .2rem .5rem;
+  font-weight: bold;
+  border-radius: 2´x;
 }

@@ -2,6 +2,7 @@ import initAnimaNumbers from "./animaNumbers.js"
 export default function initFetchAnimais (){
 
   async function fetchAnimais(url) {
+    try {
     let animaisResponse = await fetch(url)
     let animaisJSON = await animaisResponse.json()
   
@@ -11,13 +12,15 @@ export default function initFetchAnimais (){
       numerosGrid.appendChild(divAnimal)
     })
     initAnimaNumbers()
+  } catch(erro) {
+    console.log(erro)
   }
+}
   
   function createAnimal(animal) {
     let div = document.createElement('div')
     div.classList.add('numero-animal')
     div.innerHTML = `<h3>${animal.especie}</h3><span data-numero>${animal.total}</span>`
-    console.log(div)
     return div
   }
   
