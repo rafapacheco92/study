@@ -1,6 +1,5 @@
 import ValidarCPF from './validar-cpf.js'
 
 const cpf = document.querySelector('#cpf')
-const validarCPF = new ValidarCPF()
+const validarCPF = new ValidarCPF(cpf).init()
 
-console.log(validarCPF.formatar())
