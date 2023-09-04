@@ -1,16 +1,16 @@
-export default function scrollSuavinho(){
-  let linksInt = document.querySelectorAll('[data-menu="suave"] a[href^="#"]')
-  
+export default function scrollSuavinho() {
+  const linksInt = document.querySelectorAll('[data-menu="suave"] a[href^="#"]');
+
   function SmoothScroll(event) {
-    event.preventDefault()
-    const href = this.getAttribute('href')
-    const section = document.querySelector(href)
-  
+    event.preventDefault();
+    const href = this.getAttribute('href');
+    const section = document.querySelector(href);
+
     section.scrollIntoView({
-      behavior:'smooth',
+      behavior: 'smooth',
       block: 'start',
-    })
-    
+    });
+
     // Forma alternativa
     // const yLink = section.offsetTop
     // window.scrollTo({
@@ -18,8 +18,8 @@ export default function scrollSuavinho(){
     //   behavior:'smooth'
     // })
   }
-  
+
   linksInt.forEach((link) => {
-    link.addEventListener('click', SmoothScroll)
-  })
-  }
+    link.addEventListener('click', SmoothScroll);
+  });
+}

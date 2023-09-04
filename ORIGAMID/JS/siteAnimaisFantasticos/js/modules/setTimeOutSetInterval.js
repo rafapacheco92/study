@@ -6,6 +6,5 @@ export default function addClass() {
 
 setInterval(addClass, 2000);
 
-
 // Crie um cronometro utilizando o setInterval. Deve ser possível
 // iniciar, pausar e resetar (duplo clique no pausar).
