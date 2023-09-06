@@ -1,0 +1,47 @@
+CREATE DATABASE escola;
+
+CREATE TABLE turma(
+idturma INT NOT NULL AUTO_INCREMENT,
+ano_turma INT,
+quantidade_alunos INT,
+PRIMARY KEY(idturma)
+);
+
+CREATE TABLE professor(
+idprofessor INT NOT NULL AUTO_INCREMENT,
+nome_professor VARCHAR(45),
+documento_professor INT,
+area_especializacao VARCHAR(45),
+PRIMARY KEY(idprofessor)
+);
+
+CREATE TABLE sala(
+idsala INT NOT NULL AUTO_INCREMENT,
+numero_sala INT,
+andar INT,
+PRIMARY KEY(idsala)
+);
+
+CREATE TABLE aula(
+idaula INT NOT NULL AUTO_INCREMENT,
+materia VARCHAR(45),
+PRIMARY KEY(idaula)
+);
+
+ALTER TABLE turma
+ADD COLUMN sala_id INT,
+ADD FOREIGN KEY (sala_id)
+REFERENCES sala (idsala);
+
+ALTER TABLE professor
+ADD COLUMN turma_id INT,
+ADD FOREIGN KEY (turma_id)
+REFERENCES turma (idturma);
+
+ALTER TABLE aula
+ADD COLUMN professor_id INT,
+ADD FOREIGN KEY (professor_id)
+REFERENCES professor (idprofessor);
+
+ALTER TABLE professor
+MODIFY COLUMN nome_professor VARCHAR(80);

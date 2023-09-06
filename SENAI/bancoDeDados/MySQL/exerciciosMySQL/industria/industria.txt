@@ -1,0 +1,37 @@
+CREATE DATABASE industria;
+
+CREATE TABLE peca(
+idpeca INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(45),
+peso INT,
+ano_fabricacao INT,
+fornecedor VARCHAR(45),
+PRIMARY KEY(idpeca)
+);
+
+CREATE TABLE catergoria(
+idcategoria INT NOT NULL AUTO_INCREMENT,
+descricao VARCHAR(45),
+PRIMARY KEY(idcategoria)
+);
+
+CREATE TABLE fornecedor(
+idfornecedor INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(45),
+nacionalidade VARCHAR(45),
+PRIMARY KEY(idfornecedor)
+);
+
+ALTER TABLE peca
+ADD COLUMN fornecedor_id INT,
+ADD FOREIGN KEY (fornecedor_id)
+REFERENCES fornecedor (idfornecedor),
+ADD COLUMN categoria_id INT,
+ADD FOREIGN KEY (categoria_id)
+REFERENCES catergoria (idcategoria);
+
+ALTER TABLE peca
+MODIFY COLUMN nome VARCHAR(80); // alterar o tipo de dado na coluna
+
+ALTER TABLE fornecedor
+MODIFY COLUMN nome VARCHAR(80);
