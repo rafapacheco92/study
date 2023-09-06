@@ -1,0 +1,137 @@
+CREATE DATABASE livraria;
+
+CREATE TABLE editora(
+idEditora INT NOT NULL AUTO_INCREMENT,
+nomeFantasiaEditora VARCHAR(45),
+razaoSocial VARCHAR(45),
+num_celular VARCHAR(20),
+rua VARCHAR(45),
+numeroEndereco INT,
+bairro VARCHAR(45),
+cidade VARCHAR(45),
+estado VARCHAR(45),
+pais VARCHAR(45),
+PRIMARY KEY (idEditora)
+);
+
+CREATE TABLE autor(
+idAutor INT NOT NULL AUTO_INCREMENT,
+nomeAutor VARCHAR(45),
+rgAutor VARCHAR(30),
+PRIMARY KEY (idAutor)
+);
+
+CREATE TABLE financiador(
+idFinanciador INT NOT NULL AUTO_INCREMENT,
+nomeFinanciador VARCHAR(45),
+cnpjFinanciador VARCHAR(18),
+PRIMARY KEY (idFinanciador)
+);
+
+CREATE TABLE cliente(
+idCliente INT NOT NULL AUTO_INCREMENT,
+nomeCliente VARCHAR(45),
+rgCliente INT,
+cpfCliente VARCHAR(14),
+rua VARCHAR(45),
+numeroEndereco INT,
+bairro VARCHAR(45),
+cidade VARCHAR(45),
+estado VARCHAR(45),
+pais VARCHAR(45),
+PRIMARY KEY (idCliente)
+);
+
+CREATE TABLE pedido(
+idPedido INT NOT NULL AUTO_INCREMENT,
+qtdPedido INT,
+PRIMARY KEY (idPedido)
+);
+
+CREATE TABLE livro(
+idLivro INT NOT NULL AUTO_INCREMENT,
+ISBNLivro INT,
+tituloLivro VARCHAR(45),
+precoLivro INT,
+categoriaLivro VARCHAR(45),
+PRIMARY KEY (idLivro)
+);
+
+ALTER TABLE pedido
+ADD COLUMN idLivro INT,
+ADD COLUMN idCliente INT;
+
+ALTER TABLE pedido
+ADD FOREIGN KEY (idLivro)
+REFERENCES livro (idLivro),
+ADD FOREIGN KEY (idCliente)
+REFERENCES cliente (idCliente);
+
+ALTER TABLE livro
+ADD COLUMN idEditora INT,
+ADD COLUMN idFinanciador INT,
+ADD COLUMN idAutor INT;
+
+ALTER TABLE livro
+ADD FOREIGN KEY (idEditora)
+REFERENCES editora (idEditora),
+ADD FOREIGN KEY (idAutor)
+REFERENCES autor (idAutor),
+ADD FOREIGN KEY (idFinanciador)
+REFERENCES financiador (idFinanciador);
+
+SELECT * FROM autor;
+
+INSERT INTO editora
+(nomeFantasiaEditora, razaoSocial, rua, numeroEndereco, bairro, cidade, estado, pais, num_celular)
+VALUES
+('Canguru', 'CANGURU LTDA', 'Rua Canguru', '11', 'Canguruzada', 'Canguru City', 'Canguru State', 'Canguru Country', '48-11111-1111'),
+('Hipopotamo', 'HIPOPOTAMO LTDA', 'Rua Hipopotamo', '22', 'Hipopotamozada', 'Hipopotamo City', 'Hipopotamo State', 'Hipopotamo Country', '48-22222-2222'),
+('Tucano', 'TUCADO LTDA', 'Rua Tucano', '11', 'Tucanozada', 'Tucano City', 'Tucano State', 'Tucano Country', '48-33333-3333'),
+('Leopardo', 'LEOPARDO LTDA', 'Rua Leopardo', '11', 'Leopardozada', 'Leopardo City', 'Leopardo State', 'Leopardo Country', '48-44444-4444'),
+('Urso', 'URSO LTDA', 'Rua Urso', '11', 'Ursozada', 'Urso City', 'Urso State', 'Urso Country', '48-55555-5555');
+
+INSERT INTO autor
+(nomeAutor, rgAutor)
+VALUES
+('Edinho', '11111'),
+('Clebinho', '22222'),
+('Marquinho', '33333'),
+('Borinho', '44444'),
+('Kleytinho', '55555');
+
+INSERT INTO financiador
+(nomeFinanciador, cnpjFinanciador)
+VALUES
+('Lava Jato', '11111'),
+('Mensalão', '22222'),
+('Odebrecht', '33333'),
+('Petrobrás', '44444'),
+('Eletrobrás', '55555');
+
+INSERT INTO cliente
+(nomeCliente, rgCliente, cpfCliente, rua, numeroEndereco, bairro, cidade, estado, pais)
+VALUES
+('Formiga', '1111111', '1111112222', 'Rua Formigueiro', '11', 'Formigueirópolis', 'Formiga City', 'Formiga State', 'Formiga Country'),
+('Mosquito', '2222222', '22222223333', 'Rua Mosqueteiro', '22', 'Mosquitopolis', 'Mosquito City', 'Mosquito State', 'Mosquito Country'),
+('Vespa', '3333333', '33333334444', 'Rua Vespeiro', '33', 'Vespeirópolis', 'Vespa City', 'Vespa State', 'Vespa Country'),
+('Abelha', '4444444', '4444445555', 'Rua Abelheiro', '44', 'Abelhópolis', 'Abelha City', 'Abelha State', 'Abelha Country'),
+('Gafanhoto', '555555', '5555556666', 'Rua Gafanhoteiro', '55', 'Gafanhotópolis', 'Gafanhoto City', 'Gafanhoto State', 'Gafanhoto Country');
+
+INSERT INTO livro
+(ISBNLivro, tituloLivro, precoLivro, categoriaLivro, idEditora, idFinanciador, idAutor)
+VALUES
+('111.111', 'Mundo dos Cangurus', '45', 'Biologia', '1', '1', '1'),
+('222.222', 'O Passado dos Mosquitoss', '55', 'História', '2', '2', '2'),
+('333.333', 'A Genética das Vespas', '65', 'Ciência', '3', '3', '3'),
+('444.444', 'A Segunda Guerra das Abelhas', '75', 'Curiosidade', '4', '4', '4'),
+('555.555', 'Gafanhoto Fight Night', '85', 'Esporte', '5', '5', '5');
+
+INSERT INTO pedido
+(idLivro, qtdPedido, idCliente)
+VALUES
+('1', '11', '1'),
+('2', '22', '2'),
+('3', '33', '3'),
+('4', '44', '4'),
+('5', '55', '5');

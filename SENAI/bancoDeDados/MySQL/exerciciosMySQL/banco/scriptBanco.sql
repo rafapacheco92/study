@@ -50,7 +50,7 @@ ADD COLUMN cod_cliente INT,
 ADD COLUMN cod_tipo_conta INT,
 ADD COLUMN num_agencia INT;
 
-ALTER TABLE conta
+ALTER TABLE conta_bancaria
 ADD FOREIGN KEY (cod_cliente)
 REFERENCES cliente (cod_cliente),
 ADD FOREIGN KEY (cod_tipo_conta)
@@ -112,3 +112,61 @@ VALUES
 ('Mica Galvão', '000.111.111-11', '48-88436-4562', 'Rua JJJ', '00', 'Bairro0', 'Cidade0', 'Estado0', '11111000', '2', 'mica@ibjjf.com');
 
 SELECT * FROM cliente
+
+ALTER TABLE conta_bancaria
+DROP FOREIGN KEY conta_bancaria_ibfk_2;
+
+ALTER TABLE tipo_conta
+MODIFY COLUMN cod_tipo_conta INT NOT NULL AUTO_INCREMENT;
+
+INSERT INTO agencia
+(nome_agencia)
+VALUES
+('Centro-Florianópolis'),
+('Campeche-Florianópolis'),
+('Ingleses-Florianópolis');
+
+SELECT * FROM conta_bancaria;
+
+INSERT INTO tipo_conta
+(des_tipo_conta)
+VALUES
+('Conta-Poupança'),
+('Conta-Corrente');
+
+
+INSERT INTO conta_bancaria
+(num_conta, val_saldo, cod_cliente, cod_tipo_conta, num_agencia, cartao_credito)
+VALUES
+('123', '3479555.79', '4', '1', '1', '54563215649874562'),
+('234', '4795623.89', '3', '2', '2', '6548956321547562'),
+('345', '4568723.56', '3', '1', '3', '165876576205965'),
+('456', '3245687.56', '4', '2', '1', '564785648922146'),
+('567', '9875643.78', '2', '2', '2', '545678916784165'),
+('678', '78956432.89', '1', '2', '3', '1456451657986374'),
+('789', '567895463.56', '1', '2', '1', '456474984165165'),
+('890', '56874613.55', '2', '2', '2', '1654798461987964'),
+('901', '78965431.56', '2', '2', '3', '15649465168497896'),
+('012', '987564354.87', '1', '2', '1', '14687984165749814');
+
+UPDATE conta_bancaria
+SET cartao_credito = 'NAO'
+WHERE cod_cliente = '9';
+
+UPDATE categoria_cliente
+SET nom_categoria_cliente = 'Personnalite'
+WHERE cod_categoria_cliente = '1';
+
+SELECT * FROM cliente;
+
+UPDATE cliente
+SET cod_categoria_cliente = '3'
+WHERE cod_categoria_cliente = '4';
+
+DELETE FROM categoria_cliente
+WHERE cod_categoria_cliente = '4';
+
+
+
+DELETE FROM cliente
+WHERE nom_cliente = 'Wanderlei Silva';
