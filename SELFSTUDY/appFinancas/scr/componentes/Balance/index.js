@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   value: {
     flexDirection: 'row',
-    gap: 10,
+    gap: 4,
     alignItems: 'center'
   },
   currensy: {
