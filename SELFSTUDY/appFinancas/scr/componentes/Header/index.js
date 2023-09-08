@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text, StatusBar, TouchableOpacity } from 'react-native';
 
 import { Feather } from '@expo/vector-icons'
+import { MotiView, MotiText } from 'moti';
 
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 120;
 
@@ -9,7 +10,7 @@ export default function Header({ name }) {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.username}>{ name }</Text>
+        <Text style={styles.username}>{name}</Text>
 
         <TouchableOpacity activeOpacity={0.7} style={styles.buttonUser}>
           <Feather name="user" size={27} color="#FFF" />

@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, StatusBar, FlatList } from 'react-native';
 import Header from '../../componentes/Header'
 import Balance from '../../componentes/Balance';
 import Movements from '../../componentes/Movements'
+import Actions from '../../componentes/Actions'
 
 const moving = [
   {
@@ -35,6 +36,8 @@ export default function Home() {
     <View style={styles.container}>
       {/* <View style={styles.content}> */}
       <Header name="Rafael Pacheco" />
+
+      <Actions />
 
       <Balance saldo="14.392,00" gastos="3.211,00" />
 

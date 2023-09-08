@@ -5,27 +5,23 @@ export default function Movements({ element }) {
   const [showValue, setShowValue] = useState(false)
 
   return (
-    <TouchableOpacity
-      style={styles.container}>
-      <View style={styles.move}>
-        <Text style={styles.data}>{element.date}</Text>
-        <View style={styles.singleMove}>
-          <Text style={styles.moveName}>
-            {element.label}
-          </Text>
-          {showValue ? (
-            <Text
-              style={element.type ? styles.income : styles.outcome}
-            >
-              {element.type ? `R$ ${element.value}` : `R$ -${element.value}`}
-            </Text>
-          ) : (
-            <View style={styles.skeleton}>
-            </View>
-          )}
+    <TouchableOpacity style={styles.container}
+      onPress={() => setShowValue(!showValue)}>
+      <Text style={styles.data}>{element.date}</Text>
 
-        </View>
-      </View >
+      <View style={styles.singleMove}>
+        <Text style={styles.moveName}>{element.label}</Text>
+        {showValue ? (
+          <Text
+            style={element.type ? styles.income : styles.outcome}
+          >
+            {element.type ? `R$ ${element.value}` : `R$ -${element.value}`}
+          </Text>
+        ) : (
+          <View style={styles.esqueleto}>
+          </View>
+        )}
+      </View>
     </TouchableOpacity >
   );
 }
@@ -64,11 +60,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#2ecc71'
   },
-  skeleton: {
+  esqueleto: {
     width: 80,
     marginTop: 6,
     height: 10,
-    backGroundColor: '#DADADA',
+    backgroundColor: '#DADADA',
     borderRadius: 8
   }
 })
