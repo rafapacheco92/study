@@ -79,9 +79,9 @@ VALUES
 INSERT INTO estacionamento
 (nomeEstacionamento, dataEntrada, dataSaida, horaEntrada, horaSaida, veiculoId)
 VALUES
-('Capao Redondo', '2022-01-22', '2023-09-25', '11:11:11', '11:11:14', '1'),
-('Baixada Francesa', '2023-01-22', '2023-05-25', '11:11:12', '11:11:15', '2'),
-('Torres de Lima', '2022-12-22', '2023-09-01', '11:11:13', '11:11:16', '3');
+('Capao Redondo', '2022-01-22', '2023-09-25', '11:11:11', '11:11:14', '4'),
+('Baixada Francesa', '2023-01-22', '2023-05-25', '11:11:12', '11:11:15', '5'),
+('Torres de Lima', '2022-12-22', '2023-09-01', '11:11:13', '11:11:16', '6');
 
 
 SELECT * FROM veiculo
@@ -115,4 +115,31 @@ SELECT veiculo.idVeiculo, veiculo.placa, veiculo.cor, cliente.nomeCliente FROM v
 JOIN cliente
 ON veiculo.clienteId = cliente.idCliente;
 
-SELECT * FROM vw_veiculo_cliente
+SELECT veiculo.placa, cliente.nomeCliente FROM veiculo
+JOIN cliente
+ON veiculo.clienteId = cliente.idCliente;
+
+SELECT cliente.nomeCliente, cliente.dataNascimento from veiculo
+JOIN cliente 
+ON veiculo.clienteId = cliente.idCliente
+WHERE veiculo.placa = 'AAA-1111';
+
+SELECT veiculo.placa, veiculo.cor FROM estacionamento
+JOIN veiculo
+ON estacionamento.veiculoId = veiculo.idVeiculo
+WHERE estacionamento.veiculoId = '2';
+
+SELECT estacionamento.dataEntrada, estacionamento.dataSaida FROM estacionamento
+JOIN veiculo
+ON estacionamento.veiculoId = veiculo.idVeiculo
+WHERE veiculo.placa = 'AAA-1111';
+
+SELECT estacionamento.dataEntrada FROM estacionamento
+JOIN veiculo
+ON estacionamento.veiculoId = veiculo.idVeiculo
+WHERE veiculo.cor = 'azul';
+
+SELECT cliente.nomeCliente FROM veiculo
+JOIN cliente
+ON veiculo.clienteId = cliente.idCliente
+WHERE veiculo.categoriaId = '1' OR '2'
