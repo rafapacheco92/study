@@ -22,8 +22,38 @@ app.get('/clients', (req, res) => {
 
 app.get('/clients/:id', (req, res) => {
     const id = req.params.id
-    const sql = 'SELECT * FROM cliente WHERE idCliente = ?'
+    const cliente - req.body
+    const sql = 'SELECT * FROM cliente WHERE idCliente=?'
     conexao.query(sql, id, (erro, result) => {
+        if(erro){
+            console.log('erro')
+        } else {
+            res.json(result)
+        }
+    })
+})
+
+//deletar
+
+app.delete('/clients/:id', (req, res) => {
+    const id = req.params.id
+    const sql = 'DELETE * FROM cliente WHERE idCliente=?'
+    conexao.query(sql, id, (erro, result) => {
+        if(erro){
+            console.log('erro')
+        } else {
+            res.json(result)
+        }
+    })
+})
+
+//update
+
+app.put('/clients/:id', (req, res) => {
+    const id = req.params.id
+    const client = req.body
+    const sql = 'UPDATE cliente SET ? WHERE idCliente=?'
+    conexao.query(sql, [cliente,id], (erro, result) => {
         if(erro){
             console.log('erro')
         } else {

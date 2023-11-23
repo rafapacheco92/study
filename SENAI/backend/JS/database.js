@@ -1,9 +1,9 @@
-import Sequelize from 'sequelize';
+import Sequelize from "sequelize"
 
 const Connection = new Sequelize(
     'backend',
     'user',
-    '123456',
+    '12345',
     {
         host: 'localhost',
         dialect: 'mysql'
